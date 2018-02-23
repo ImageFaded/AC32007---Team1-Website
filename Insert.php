@@ -12,9 +12,8 @@ and open the template in the editor.
     <body>       
         <?php            
             include 'validate.php';
-            $FirstName = $LastName = $Position = "";
-            $FirstNameError = $LastNameError = $PositionError = "";
-            
+            $FirstName = $LastName = $Position = $Username = $Password = "";
+            $FirstNameError = $LastNameError = $PositionError = $UsernameError = $PasswordError =  "";            
             if($_SERVER["REQUEST_METHOD"] == "GET"){
                 include 'dblink.php';
                 if (empty($_GET["FirstName"]))
@@ -24,26 +23,42 @@ and open the template in the editor.
                 else
                 {
                     $FirstName = validate($_GET["FirstName"]);
-                }
-                if (empty($_GET["LastName"]))
+                }   
+                 if (empty($_GET["LastName"]))
                 {
                     $LastNameError = "*";
                 }
                 else
                 {
                     $LastName = validate($_GET["LastName"]);
-                }
-                if (empty($_GET["Position"]))
+                } 
+                 if (empty($_GET["Position"]))
                 {
                     $PositionError = "*";
                 }
                 else
                 {
                     $Position = validate($_GET["Position"]);
+                } 
+                 if (empty($_GET["Username"]))
+                {
+                    $UsernameError = "*";
                 }
-                if ($FirstNameError == "" AND $LastNameError == "" AND  $PositionError == ""){
+                else
+                {
+                    $Username = validate($_GET["Username"]);
+                } 
+                 if (empty($_GET["Password"]))
+                {
+                    $PasswordError = "*";
+                }
+                else
+                {
+                    $Password = validate($_GET["Password"]);
+                } 
+                if ($FirstNameError == "" AND $LastNameError == "" AND $PositionError == ""){
                     $database = connect();     
-                    $sql = "INSERT INTO users(FirstName,LastName,Position) VALUES ('$FirstName','$LastName','$Position')";
+                    $sql = "INSERT INTO users(FirstName,LastName,Position,Username,Pass) VALUES ('$FirstName','$LastName','$Position','$Username','$Password')";
                     $result = mysqli_query($database, $sql);     
                     echo "good";
                 }
@@ -57,6 +72,8 @@ and open the template in the editor.
             First Name: <br><input type="text" name="FirstName"> <font color="##FF0000"><?php echo $FirstNameError ?></font> </br>
             Last Name: <br><input type="text" name="LastName"> <font color="##FF0000"><?php echo $LastNameError ?></font> </br>
             Position: <br><input type="text" name="Position"> <font color="##FF0000"><?php echo $PositionError ?></font> </br>
+            Username: <br><input type="text" name="Username"> <font color="##FF0000"><?php echo $UsernameError ?></font> </br>
+            Password: <br><input type="password" name="Password"> <font color="##FF0000"><?php echo $PasswordError ?></font> </br>
             <input type="submit" name="submit" value="submit" /></br>
         </form>
     </body>

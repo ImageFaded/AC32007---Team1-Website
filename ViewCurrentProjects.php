@@ -101,3 +101,8 @@ $sql4 = "SELECT FirstName, LastName FROM users INNER JOIN projects ON users.idUs
 
 <form action="NewProject.php" method="post">
 <input type=submit id='move' value="Submit a Project">
+</form>
+<br><br><br>
+<form action="staffPage.php" method="post">
+	<input type=submit id='staffPage' value="Back">
+</form>

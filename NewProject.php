@@ -76,10 +76,14 @@ $sql = "SELECT * FROM users WHERE position='RIS'";
 </select>
 <br><br>
 <input type=submit value="Submit Project">
-
-
-
 </form>
 <br><br><br>
 <form action="ViewCurrentProjects.php" method="post">
-<input type=submit id='move' value="View Projects">
+	<input type=submit id='move' value="View Projects">
+</form>
+<br><br><br>
+<form action="staffPage.php" method="post">
+	<input type=submit id='staffPage' value="Back">
+</form>
+
+
