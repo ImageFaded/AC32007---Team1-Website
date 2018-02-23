@@ -1,4 +1,4 @@
-<!-- Displays all projects stored in database in  tabular form -->
+<!-- Displays all pending projects stored in database in tabular form -->
 <Head>
 <Title>projects Awaiting Approval</Title>
 </Head>
@@ -23,6 +23,7 @@
 
 
 <?php
+//Displays message if project ahs just been approved or denied.
 
 if (isset($_GET['done']))
 {

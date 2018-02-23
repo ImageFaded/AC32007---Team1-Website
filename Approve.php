@@ -1,10 +1,14 @@
 <?php
+//Changes the project status from 1 (pending) to 2 (approved). Still needs some system to make sure all three staff have approved before it is chenged.
+
+// Gets ID of project to be approved from PendingProjects.php.
 $id = $_GET['id'];
 
 include "dblink.php";
 
 $con = connect();
 
+//Updates the database.
 $sql = "UPDATE projects SET ProjectStatus = 2  WHERE idProjects = $id";
 
 if ($con->query($sql) === TRUE) {

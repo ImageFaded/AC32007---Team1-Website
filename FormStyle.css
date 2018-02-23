@@ -10,9 +10,10 @@ html{
     padding: 0px;
     box-sizing: border-box;
 	vertical-align: middle;
-
-	padding-left:15%; 
-    padding-right:15%;
+	margin-left:15%; 
+    margin-right:15%;
+	padding-left:5%; 
+    padding-right:5%;
 	
 
     background-color:  #ffffff;
@@ -27,16 +28,13 @@ body{
     margin: 0 auto;
     padding: 55px;
     box-sizing: border-box;
-	margin-left:15%; 
-    margin-right:15%;
-	
 
     background-color:  #ffffff;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 
     font: bold 14px sans-serif;
     text-align: center;
-
+	height: 100%;
 }
 
 
@@ -100,8 +98,6 @@ textarea{
     padding: 12px;
     border: 1px solid #dbdbdb;
     resize: vertical;
-	margin-left:15%; 
-    margin-right:15%;
 }
 
 
@@ -118,8 +114,7 @@ button{
 }
 
 /*Table style, taken and modified from https://codepen.io/alassetter/pen/cyrfB */
-
-
+ 
 th {
   color:#D5DDE5;;
   background:#1b1e24;
@@ -156,6 +151,9 @@ tr:nth-child(odd) td {
   background:#EBEBEB;
 }
  
+tr:nth-child(odd):hover td {
+  background:#4E5066;
+}
 
 tr:last-child td:first-child {
   border-bottom-left-radius:3px;

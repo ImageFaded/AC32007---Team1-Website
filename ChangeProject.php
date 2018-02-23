@@ -7,10 +7,10 @@ include "dblink.php";
 $con = connect();
 
 //Gets data from UpdateProject.php
-$id = $_POST['id'];
-$name =  $_POST['projectName'];
-$file = $_POST['projectFile'];
-$description = $_POST['projectDescription'];
+$id = $_GET['id'];
+$name =  $_GET['projectName'];
+$file = $_GET['projectFile'];
+$description = $_GET['projectDescription'];
 
 // Updates the database
 $sql = "UPDATE projects SET ProjectName = '$name', ProjectFile = '$file', ProjectDescription = '$description' WHERE idProjects = $id";

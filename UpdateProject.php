@@ -26,11 +26,10 @@ if (isset($_GET['done']))
 
 //Gets the ID of the project that the user selected.
 $id = $_GET['pjid'];
-echo $_GET['pjid'];
 
 $sql = "SELECT * FROM projects WHERE idProjects = '$id'";
 
-if ($result==mysqli_query($con,$sql))
+if ($result=mysqli_query($con,$sql))
 {
 	while ($row=mysqli_fetch_row($result))
 	{
@@ -39,7 +38,6 @@ if ($result==mysqli_query($con,$sql))
 		$description = $row[4];
 	}
 }
-mysqli_free_result($result);
 mysqli_close($con);
 
 ?>
