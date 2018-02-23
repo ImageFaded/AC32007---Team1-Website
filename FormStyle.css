@@ -23,6 +23,24 @@ html{
     text-align: center;
 }
 
+#approved {
+	max-width: none;
+	max-height: none;
+    padding: 0px;
+    box-sizing: border-box;
+	vertical-align: middle;
+	margin-left:15%; 
+    margin-right:15%;
+	padding-left:15%; 
+    padding-right:15%;
+	
+    background-color:  #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+    font: bold 14px sans-serif;
+    text-align: center;
+}
+
 body{
     max-width: 640px;
     margin: 0 auto;

@@ -1,10 +1,10 @@
 <!-- Displays all pending projects stored in database in tabular form -->
 <Head>
-<Title>Pending Projects</Title>
+<Title>Approved Projects</Title>
 </Head>
-<Body id=mainpage>
+<Body id=approved>
 <link rel="stylesheet" href="FormStyle.css">
-<h1>Pending Projects</h1><br><br>
+<h1>Approved Projects</h1><br><br>
 <table>
 
 <tr>
@@ -17,35 +17,16 @@
 <th>RIS</th>
 <th>Vice Dean</th>
 <th>Dean</th>
-<th>Approve</th>
-<th>Reject</th>
 </tr>
 
 
 <?php
-//Displays message if project ahs just been approved or denied.
 
-if (isset($_GET['done']))
-{
-	if (($_GET['done']) == "approved")
-	{
-		echo"<script type='text/javascript'>alert('Project Approved');</script>";
-		unset($_GET['done']);
-	}
-	else if (($_GET['done']) == "rejected")
-	{
-		echo"<script type='text/javascript'>alert('Project Rejected');</script>";
-		unset($_GET['done']);
-	}
-		
 
-}
-
-//Code should go here that checks whether the crrent user is RIS, Vice Dean or Dean.
 include "dblink.php";
 
 $con = connect();
-$sql = "SELECT * FROM projects WHERE ProjectStatus = 1";
+$sql = "SELECT * FROM projects WHERE ProjectStatus = 2";
 		
 //Join allows page to display name of staff instead of ID. 
 $sql2 = "SELECT FirstName, LastName FROM users INNER JOIN projects ON users.idUsers = projects.Researcher;";
@@ -53,7 +34,7 @@ $sql3 = "SELECT FirstName, LastName FROM users INNER JOIN projects ON users.idUs
 $sql4 = "SELECT FirstName, LastName FROM users INNER JOIN projects ON users.idUsers = projects.ViceDean;";
 
 
-	//Displays the details of all pending research projects in the database. 
+	//Displays the details of all approved research projects in the database. 
     if ($result=mysqli_query($con,$sql))
     {
 		$nameResult=mysqli_query($con,$sql2);
@@ -94,8 +75,6 @@ $sql4 = "SELECT FirstName, LastName FROM users INNER JOIN projects ON users.idUs
 			echo "<td>" . $RIS[0] . " " . $RIS[1]. "</td>";
 			echo "<td>Iain Stewart</td>";
 			echo "<td>" . $viceDean[0] . " " . $viceDean[1] ."</td>";
-			echo "<td><a href='Approve.php?id=$id'>Approve</a></td>";
-			echo "<td><a href='Reject.php?id=$id'>Reject</a></td>";
 			
 			
 			echo "</tr>";
