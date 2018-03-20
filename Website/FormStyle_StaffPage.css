@@ -24,7 +24,7 @@ html{
     max-width: none;
     max-height: none;
     padding: 0px;
-    box-sizing: border-box;
+ 
     vertical-align: middle;
     margin-left:15%; 
     margin-right:15%;
@@ -38,7 +38,7 @@ body{
     max-width: 150px;
     padding: 0px;
     box-sizing: border-box;
-    background-color:  blue;
+    background-color:  #4365e2;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     font: bold 14px sans-serif;
 }
@@ -49,13 +49,6 @@ h1{
     color:  white;
     font-size: 24px;
 
-}
-
-.uniLink{
-	color: black;
-	align: right;
-	margin: 15%;
-	vertical-align: top;
 }
 
 label span{
