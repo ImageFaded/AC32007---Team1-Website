@@ -84,17 +84,16 @@ if ((strlen($projectDes) > 255))
 
 //File upload goes here
 //Check if there exists a file
-echo '<script>alert("I am about to handle")</script>';
 if(!empty($_FILES['projectFile']))
 {
-	echo '<script>alert("There is a file")</script>';
 	$targetDir = "uploads/";
 	$sqlFilename = basename($_FILES["projectFile"]["name"]);
 	$targetDir = $targetDir . basename($_FILES["projectFile"]["name"]);
 	if(move_uploaded_file($_FILES['projectFile']['tmp_name'], $targetDir)) 
 	{
+            $time = time();
 		//Do all the rest of the processing
-		$sql = 'INSERT INTO projects (projectName, projectDescription, projectStatus, projectFile, Researcher, RIS, Dean, ViceDean, RISApproved, ViceDeanApproved) VALUES ("'.$projectName.'", "'.$projectDes.'", 1, "'.$sqlFilename.'", "'.$id.'", "'.$ris.'", 10, 9, 1, 1)';
+		$sql = 'INSERT INTO projects (projectName, projectDescription, projectStatus, projectFile, Researcher, RIS, Dean, ViceDean, RISApproved, ViceDeanApproved, DateCreated) VALUES ("'.$projectName.'", "'.$projectDes.'", 1, "'.$sqlFilename.'", "'.$id.'", "'.$ris.'", 10, 9, 1, 1, FROM_UNIXTIME('.time().'))';
 		if ($database->query($sql) === TRUE) 
 		{
 			echo "<script type='text/javascript'>window.location.replace('https://zeno.computing.dundee.ac.uk/2017-agile/team1/website/ViewCurrentProjects.php');</script>" ;
