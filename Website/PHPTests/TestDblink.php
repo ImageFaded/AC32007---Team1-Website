@@ -16,6 +16,6 @@ class TestDblink extends PHPUnit_Framework_Testcase{
     
     public function testDblink1(){
         $database = new database();
-        $this->assertTrue(true, $database->connect());
+        $this->assertTrue(true, $database);
     }
 }
